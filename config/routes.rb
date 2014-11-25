@@ -41,6 +41,8 @@ Rails.application.routes.draw do
   #   end
    root :to => 'home#index'
    match '/search' => 'home#search', via: :post
+   match '/fb_search' => 'home#fb_search', via: :get
+   match '/fb_results' => 'home#fb_results', via: :post
   # Example resource route with concerns:
   #   concern :toggleable do
   #     post 'toggle'

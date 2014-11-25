@@ -1,0 +1,40 @@
+<div class="flash">
+	<%= flash[:alert]%>
+</div>
+<h2 class="page-header">Web Crawler</h2>
+
+<div class="form-group">
+	<%= form_tag fb_results_path , :id => 'new_push'%>
+
+	<div class="col-xs-3">
+		<%= text_field_tag 'fb_text','' ,maxlength: 200, size: 20,placeholder: "Enter Text", class: "form-control" %>
+	    <%= submit_tag 'Search',:class => "btn btn-primary", :confirm => "Are you sure you want to send the notification?" %>
+
+	</div>
+</div>
+
+<h3>FaceBook Results</h3>
+
+<table class="table table-striped table-bordered" id="tweet_table">
+	<thead>
+		<tr>
+			 Name
+		</tr>
+		<tr>
+			Facebook Username
+		</tr>
+		<tr>
+			Profile Link
+		</tr>
+	</thead>
+	<tbody>
+	<% unless @user.nil?%>
+	<tr>
+		<td><%= @user.name%></td>
+		<td><%= @user.username%></td>
+		<td><%= @user.link%></td>
+	</tr>
+	<%end%>
+
+	</tbody>
+</table>

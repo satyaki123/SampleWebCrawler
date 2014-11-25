@@ -40,4 +40,21 @@ class HomeController < ApplicationController
     end
     render 'index'
   end
+  
+  def fb_search
+    @user =nil
+    render 'fb'
+  end
+  
+  def fb_results
+    @message1 =params[:fb_text]
+    begin
+      @user = FbGraph::User.me("661208107330805|5IrEoXCReFDFSxeB1j9Zju_XNOI")
+      @user = FbGraph::User.fetch(@message1)
+      puts @user.name
+    rescue  Exception => e
+      @user = nil
+    end
+    render 'fb'
+  end
 end
