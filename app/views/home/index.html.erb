@@ -1,0 +1,83 @@
+<script>
+	$(document).on("ready", function(){
+	$("#tweet_table").dataTable({});
+});
+</script>
+<div class="flash">
+	<%= flash[:alert]%>
+</div>
+<h2 class="page-header">Web Crawler</h2>
+
+<div class="form-group">
+	<%= form_tag search_path , :id => 'new_push'%>
+
+	<div class="col-xs-3">
+		<%= label_tag "Keyword*"%>
+		<%= text_field_tag 'hello','', maxlength: 200, size: 20, class: "form-control" %>
+	</div>
+</div>
+<div class="form-group">
+	<div class="col-xs-3" style="top:20px;clear: both;">
+		<%= submit_tag 'Search',:class => "btn btn-primary", :confirm => "Are you sure you want to send the notification?" %>
+	</div>
+</div>
+		<h3>Twitter Results</h3>
+<table class="table table-striped table-bordered" id="tweet_table">
+	<thead>
+		<tr>
+			Serial No
+		</tr>
+		<tr>
+			Screen Name
+		</tr>
+		<tr>
+			Tweet
+		</tr>
+	</thead>
+	<tbody>
+
+	<%@screen_name.each_with_index do |sn,i|%>
+	<tr>
+		<td><%= i+1%></td>
+		<td><%= sn%></td>
+		<td><%= @text[i]%></td>
+	</tr>
+	<%end%>
+
+	</tbody>
+</table>
+
+<h3>Google Results</h3>
+
+<table class="table table-striped table-bordered" id="tweet_table">
+	<thead>
+		<tr>
+			Serial No
+		</tr>
+		<tr>
+			Place Name
+		</tr>
+		<tr>
+			Place Address
+		</tr>
+		<tr>
+			 Longitude
+		</tr>
+		<tr>
+			 Latitude
+		</tr>
+	</thead>
+	<tbody>
+		
+	<%@google_spot.each_with_index do |s,i|%>
+	<tr>
+		<td><%= i+1%></td>
+		<td><%= s%></td>
+		<td><%= @google_formatted_address[i]%></td>
+	    <td><%= @google_spot_lat[i]%></td>
+		<td><%= @google_spot_lng[i]%></td>
+	</tr>
+	<%end%>
+
+	</tbody>
+</table>
