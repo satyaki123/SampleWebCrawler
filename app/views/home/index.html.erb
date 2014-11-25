@@ -12,15 +12,12 @@
 	<%= form_tag search_path , :id => 'new_push'%>
 
 	<div class="col-xs-3">
-		<%= label_tag "Keyword"%>
 		<%= text_field_tag 'hello','', maxlength: 200, size: 20,placeholder: "Enter Text", class: "form-control" %>
+	    <%= submit_tag 'Search',:class => "btn btn-primary", :confirm => "Are you sure you want to send the notification?" %>
+
 	</div>
 </div>
-<div class="form-group">
-	<div class="col-xs-3" style="top:20px;clear: both;">
-		<%= submit_tag 'Search',:class => "btn btn-primary", :confirm => "Are you sure you want to send the notification?" %>
-	</div>
-</div>
+
 		<h3>Twitter Results</h3>
 <table class="table table-striped table-bordered" id="tweet_table">
 	<thead>
