@@ -23,12 +23,16 @@
 		<tr>
 			Facebook Username
 		</tr>
+		<tr>
+			Profile Link
+		</tr>
 	</thead>
 	<tbody>
 	<% unless @user.nil?%>
 	<tr>
 		<td><%= @user.name%></td>
 		<td><%= @user.username%></td>
+		<td><%= @user.link%></td>
 	</tr>
 	<%end%>
 
