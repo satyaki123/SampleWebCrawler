@@ -27,6 +27,8 @@ gem 'twitter'
 gem 'therubyracer', :platforms => :ruby
 gem 'google_places'
 gem 'fb_graph'
+gem "koala", "~> 1.10.0rc"
+
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
